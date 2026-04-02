@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+:root {
+  --mustafa-lowna-portfolio-hex: #f0eee9;
+  --background: 36 24% 95%;
+  --foreground: 222 28% 12%;
+  --card: 36 30% 97%;
+  --card-foreground: 222 26% 14%;
+  --muted: 34 18% 91%;
+  --muted-foreground: 222 12% 31%;
+  --border: 220 12% 80%;
+  --ring: 220 12% 60%;
+  --primary: 222 36% 20%;
+  --primary-foreground: 36 30% 96%;
+  --accent: 202 35% 52%;
+  --accent-foreground: 222 26% 12%;
+  --radius: 16px;
+  --section-y: 5rem;
+  --section-y-lg: 7rem;
+  --section-gap: 3rem;
+  --section-tight: 2.5rem;
+  --sticky-offset: 4.5rem;
+}
+
+.dark {
+  --background: 222 26% 10%;
+  --foreground: 36 25% 95%;
+  --card: 222 22% 14.5%;
+  --card-foreground: 36 24% 94%;
+  --muted: 220 14% 19%;
+  --muted-foreground: 214 18% 76%;
+  --border: 220 16% 24%;
+  --ring: 210 20% 45%;
+  --primary: 36 25% 92%;
+  --primary-foreground: 222 26% 12%;
+  --accent: 205 30% 55%;
+  --accent-foreground: 222 26% 12%;
+}
+html {
+  scroll-behavior: smooth;
+}
+.custom-cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  section {
+    scroll-margin-top: var(--sticky-offset);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 0.5rem;
+    z-index: 1000;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 20px -12px rgba(15, 23, 42, 0.4);
+    transform: translateY(-200%);
+    transition: transform 0.2s ease;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+
+  @media (min-width: 640px) {
+    .section {
+      padding-block: var(--section-y-lg);
+    }
+  }
+
+  .section-tight {
+    padding-block: var(--section-tight);
+  }
+
+  .section-gap {
+    gap: var(--section-gap);
+  }
+
+  .card-padding {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .card-padding {
+      padding: 2rem;
+    }
+  }
+}
