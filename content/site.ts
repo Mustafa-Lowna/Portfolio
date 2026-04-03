@@ -181,7 +181,7 @@ export const siteConfig = {
         variant: "default",
       },
       { label: "LinkedIn", href: links.linkedin, variant: "secondary" },
-      { label: "View Portfolio", href: links.website, variant: "ghost" },
+      { label: "Scroll Top", href: "#top", variant: "ghost" },
     ],
     helperText:
       "Open for freelance projects and collaborations. Feel free to reach out — I usually respond within 24 hours.",

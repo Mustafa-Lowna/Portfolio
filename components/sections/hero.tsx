@@ -50,32 +50,44 @@ export function Hero() {
 
             <div className="flex flex-wrap items-center gap-3">
               <Button
-                asChild
                 size="lg"
-                className="transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg"
+                onClick={() => {
+                  const el = document.querySelector(
+                    siteConfig.ctas.primary.href,
+                  );
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
               >
-                <Link href={siteConfig.ctas.primary.href}>
-                  {siteConfig.ctas.primary.label}
-                </Link>
+                {siteConfig.ctas.primary.label}
               </Button>
 
               <Button
-                asChild
                 variant="secondary"
                 size="lg"
-                className="transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg"
+                onClick={() => {
+                  const el = document.querySelector(
+                    siteConfig.ctas.secondary.href,
+                  );
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
               >
-                <Link href={siteConfig.ctas.secondary.href}>
-                  {siteConfig.ctas.secondary.label}
-                </Link>
+                {siteConfig.ctas.secondary.label}
               </Button>
-
-              <Link
-                href="#about"
+              <button
+                onClick={() => {
+                  const el = document.querySelector("#about");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }
+                }}
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition"
               >
                 Scroll <ArrowDownRight className="h-4 w-4" />
-              </Link>
+              </button>
             </div>
 
             <SocialLinks className="pt-2" />
