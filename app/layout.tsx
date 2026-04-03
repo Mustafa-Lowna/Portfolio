@@ -28,14 +28,10 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.seo.linkedinhandle ?? siteConfig.name,
-
-  // 🔥 IMPORTANT (localhost hatao)
   metadataBase: new URL("https://mustafa-portfolio-seven-lime.vercel.app"),
-
   icons: {
     icon: "/icon.png",
   },
-
   alternates: {
     canonical: "/",
   },
@@ -64,7 +60,6 @@ export const metadata: Metadata = {
   },
 };
 
-// 🔥🔥🔥 MOST IMPORTANT FIX (iPhone zoom issue)
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -90,7 +85,6 @@ export default function RootLayout({
 
           {children}
 
-          {/* 🔥 Chatbot */}
           <ChatBot />
         </ThemeProvider>
       </body>

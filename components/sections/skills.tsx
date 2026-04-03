@@ -40,7 +40,6 @@ export function Skills() {
             subtitle="A blend of design and development skills focused on building modern, high-quality digital solutions."
           />
 
-          {/* 🔥 GRID */}
           <motion.div
             className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 section-gap items-stretch"
             initial="hidden"
@@ -78,11 +77,9 @@ export function Skills() {
                     hover:shadow-md
                     "
                   >
-                    {/* 🔥 SOFT GLOW */}
                     <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-accent/10 blur-xl opacity-60 group-hover:opacity-80 transition" />
 
                     <div className="relative space-y-4">
-                      {/* HEADER */}
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
                           <Icon className="h-5 w-5 text-foreground transition group-hover:text-accent/80" />
@@ -98,7 +95,6 @@ export function Skills() {
                         </div>
                       </div>
 
-                      {/* TAGS */}
                       <div className="flex flex-wrap gap-2">
                         {group.items.map((item) => (
                           <Badge

@@ -10,7 +10,6 @@ export function SiteFooter() {
       <Container>
         <div className="flex flex-col items-center justify-center gap-4 text-center">
 
-          {/* Name */}
           <p className="text-sm text-muted-foreground">
             © {year}{" "}
             <span className="font-semibold text-foreground">
@@ -19,7 +18,6 @@ export function SiteFooter() {
             . All rights reserved.
           </p>
 
-          {/* Social Links */}
           <div className="flex flex-wrap justify-center items-center gap-4">
             <div className="flex flex-wrap justify-center gap-3">
               <SocialLinks showLabels />

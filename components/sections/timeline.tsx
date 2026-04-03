@@ -55,7 +55,6 @@ export function Timeline() {
           />
 
           <div className="space-y-6 section-gap">
-            {/* CONTENT */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={`page-${pageIndex}`}
@@ -108,9 +107,7 @@ export function Timeline() {
               </motion.div>
             </AnimatePresence>
 
-            {/* NAVIGATION (ARROWS + DOTS) */}
             <div className="flex items-center justify-center gap-4">
-              {/* LEFT */}
               <button
                 onClick={() =>
                   setPageIndex((prev) =>
@@ -123,7 +120,6 @@ export function Timeline() {
                 <ChevronLeft size={16} />
               </button>
 
-              {/* DOTS */}
               <div className="flex items-center gap-2" role="tablist">
                 {pages.map((pageItem, index) => (
                   <button
@@ -146,7 +142,6 @@ export function Timeline() {
                 ))}
               </div>
 
-              {/* RIGHT */}
               <button
                 onClick={() =>
                   setPageIndex((prev) => (prev + 1) % pages.length)

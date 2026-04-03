@@ -27,7 +27,6 @@ export function Services() {
             subtitle={servicesSection.subtitle}
           />
 
-          {/* 🔥 GRID WITH ANIMATION */}
           <motion.div
             className="grid gap-6 md:grid-cols-2 section-gap items-stretch"
             initial="hidden"
@@ -65,17 +64,14 @@ export function Services() {
                     hover:shadow-md
                     "
                   >
-                    {/* 🔥 SOFT GLOW */}
                     <div className="absolute -right-10 -top-10 h-20 w-20 rounded-full bg-accent/10 blur-xl opacity-60 group-hover:opacity-80 transition" />
 
                     <div className="relative space-y-4">
 
-                      {/* ICON */}
                       <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
                         <Icon className="h-5 w-5 text-foreground transition group-hover:text-accent/80" />
                       </div>
 
-                      {/* CONTENT */}
                       <div className="space-y-2">
                         <h3 className="text-base font-semibold text-foreground transition group-hover:text-primary">
                           {item.title}

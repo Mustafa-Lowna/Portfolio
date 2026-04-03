@@ -32,10 +32,8 @@ export function ProjectCard({
         featured ? "ring-1 ring-accent/30" : ""
       )}
     >
-      {/* ✅ SOFT GLOW */}
       <div className="absolute -top-10 -right-10 h-24 w-24 bg-accent/10 blur-2xl opacity-0 group-hover:opacity-80 transition duration-500" />
 
-      {/* HEADER */}
       <CardHeader className="px-0 pt-0 space-y-2">
         <CardTitle className="text-lg font-semibold transition group-hover:text-primary">
           {title}
@@ -46,10 +44,8 @@ export function ProjectCard({
         </p>
       </CardHeader>
 
-      {/* CONTENT */}
       <CardContent className="space-y-4 px-0 pb-0">
 
-        {/* TAGS */}
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <Badge
@@ -62,7 +58,6 @@ export function ProjectCard({
           ))}
         </div>
 
-        {/* HIGHLIGHTS */}
         {highlights?.length ? (
           <ul className="space-y-1 text-sm text-muted-foreground">
             {highlights.map((item) => (
@@ -76,7 +71,6 @@ export function ProjectCard({
           </ul>
         ) : null}
 
-        {/* LINKS */}
         <div className="flex items-center gap-4 text-sm pt-2">
 
           {hrefLive ? (

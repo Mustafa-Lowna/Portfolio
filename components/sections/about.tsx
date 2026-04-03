@@ -16,7 +16,6 @@ export function About() {
     <section id="about" className="section">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] section-gap items-start">
-          {/* LEFT SIDE */}
           <motion.div
             className="space-y-6"
             initial={{ opacity: 0, y: 40 }}
@@ -40,7 +39,6 @@ export function About() {
             ))}
           </motion.div>
 
-          {/* RIGHT SIDE CARD */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -56,11 +54,9 @@ export function About() {
               hover:-translate-y-1 hover:shadow-md
               "
             >
-              {/* 🔥 SOFT GLOW */}
               <div className="absolute -right-10 -top-10 h-24 w-24 bg-accent/10 blur-xl opacity-60 group-hover:opacity-80 transition" />
 
               <div className="relative space-y-5">
-                {/* HEADING */}
                 <div className="space-y-2">
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground mb-4">
                     Profile Overview
@@ -72,24 +68,23 @@ export function About() {
                   </div>
                 </div>
 
-                {/* FACTS */}
                 <div className="grid gap-4 text-sm">
                   {about.quickFacts.map((fact) => (
                     <div
                       key={fact.label}
-                      className="flex items-center justify-between gap-4"
+                      className="grid grid-cols-[110px_1fr] gap-3 text-sm"
                     >
                       <span className="text-muted-foreground">
                         {fact.label}
                       </span>
-                      <span className="text-right text-foreground font-medium">
+
+                      <span className="text-foreground font-medium leading-relaxed">
                         {fact.value}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                {/* LINKS */}
                 <div className="flex flex-wrap gap-4 text-sm text-muted-foreground pt-2">
                   <Link
                     href={siteConfig.links.linkedin}
@@ -106,7 +101,6 @@ export function About() {
                   </Link>
                 </div>
 
-                {/* DOWNLOAD BUTTON */}
                 <a
                   href="/Mustafa Resume.pdf"
                   download
@@ -118,7 +112,7 @@ export function About() {
                   hover:opacity-90 hover:scale-105 hover:shadow-md
                   "
                 >
-                  Download CV ↗
+                  Download CV
                 </a>
               </div>
             </Card>

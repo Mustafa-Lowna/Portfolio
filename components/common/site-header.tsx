@@ -10,7 +10,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { siteConfig } from "@/content/site";
 
 export function SiteHeader() {
-  const [open, setOpen] = useState(false); // ✅ state added
+  const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
@@ -20,7 +20,6 @@ export function SiteHeader() {
           {siteConfig.name}
         </Link>
 
-        {/* Desktop Nav */}
         <nav
           className="hidden items-center gap-6 text-sm text-muted-foreground md:flex"
           aria-label="Primary"
@@ -36,7 +35,6 @@ export function SiteHeader() {
           <SocialLinks className="hidden lg:flex" />
           <ThemeToggle />
 
-          {/*  Mobile Menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="sm" className="md:hidden" aria-label="Open menu">
@@ -54,7 +52,7 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setOpen(false)} // ✅ AUTO CLOSE
+                    onClick={() => setOpen(false)} 
                     className="text-muted-foreground hover:text-foreground transition"
                   >
                     {item.label}

@@ -28,7 +28,6 @@ export function Faq() {
             subtitle={faqSection.subtitle}
           />
 
-          {/* 🔥 FAQ LIST */}
           <div className="space-y-4">
 
             {faqs.map((item, index) => {
@@ -47,7 +46,6 @@ export function Faq() {
                   hover:shadow-md hover:-translate-y-[2px]
                   "
                 >
-                  {/* HEADER */}
                   <button
                     onClick={() => toggle(index)}
                     className="flex w-full items-center justify-between text-left text-base font-semibold text-foreground"
@@ -63,7 +61,6 @@ export function Faq() {
                     />
                   </button>
 
-                  {/* 🔥 ANSWER ANIMATION */}
                   <AnimatePresence initial={false}>
                     {isOpen && (
                       <motion.div

@@ -12,7 +12,6 @@ export default function ChatBot() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, typing]);
@@ -63,7 +62,6 @@ export default function ChatBot() {
 
       {open && (
         <div className="fixed bottom-35 right-6.5 w-78.75 h-117.5 bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-          {/* HEADER */}
           <div className="flex items-center justify-between px-4 py-3 border-b text-sm font-semibold">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full"></span>
@@ -84,7 +82,6 @@ export default function ChatBot() {
             </div>
           </div>
 
-          {/* EMPTY STATE */}
           {messages.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 space-y-4">
               <h3 className="text-lg font-semibold">Welcome</h3>
@@ -114,7 +111,6 @@ export default function ChatBot() {
             </div>
           ) : (
             <>
-              {/* MESSAGES */}
               <div className="flex-1 overflow-y-auto p-4 space-y-3 text-sm">
                 {messages.map((msg, i) => (
                   <div
@@ -144,7 +140,6 @@ export default function ChatBot() {
             </>
           )}
 
-          {/* INPUT */}
           <div className="p-3 border-t">
             <div className="relative">
               <input

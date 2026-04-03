@@ -24,13 +24,11 @@ export function Hero() {
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          {/* LEFT SIDE */}
           <FadeIn className="space-y-6">
             <p className="text-xs font-semibold uppercase tracking-[0.4em] text-muted-foreground">
               {siteConfig.location}
             </p>
 
-            {/* 🔥 ANIMATED HEADING */}
             <motion.h1
               initial={{ opacity: 0, y: 40, filter: "blur(6px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -41,7 +39,6 @@ export function Hero() {
               <span className="block text-primary">{siteConfig.headline}</span>
             </motion.h1>
 
-            {/* 🔥 ANIMATED BIO */}
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -51,7 +48,6 @@ export function Hero() {
               {siteConfig.shortBio}
             </motion.p>
 
-            {/* 🔥 BUTTONS */}
             <div className="flex flex-wrap items-center gap-3">
               <Button
                 asChild
@@ -84,7 +80,6 @@ export function Hero() {
 
             <SocialLinks className="pt-2" />
 
-            {/* 🔥 STATUS CHIPS */}
             <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
               {hero.statusChips.map((chip) => (
                 <span
@@ -97,9 +92,7 @@ export function Hero() {
             </div>
           </FadeIn>
 
-          {/* RIGHT SIDE */}
           <FadeIn className="space-y-4" delay={0.2}>
-            {/* CARD 1 */}
             <Card className="space-y-6 border-border/60 bg-card/80 card-padding transition-all duration-300 ease-out hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1.25">
               <div className="space-y-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
@@ -133,7 +126,6 @@ export function Hero() {
               </div>
             </Card>
 
-            {/* CARD 2 */}
             <Card className="space-y-4 border-border/60 bg-card/80 card-padding transition-all duration-300 ease-out hover:shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1.25">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
                 Highlights

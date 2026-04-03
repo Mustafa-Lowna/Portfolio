@@ -17,7 +17,7 @@ export function Testimonials() {
 
   const next = () => {
     setIndex((prev) => (prev + 1 >= total ? 0 : prev + 1));
-    setDelay(9000); // 🔥 slow after manual interaction
+    setDelay(9000);
   };
 
   const prev = () => {
@@ -25,7 +25,6 @@ export function Testimonials() {
     setDelay(9000);
   };
 
-  // ✅ Auto slide with smart control
   useEffect(() => {
     if (total <= 1 || isReading) return;
 
@@ -42,14 +41,12 @@ export function Testimonials() {
     <section id="testimonials" className="section">
       <Container>
         <div className="space-y-12">
-
           <SectionHeading
             eyebrow={testimonialsSection.eyebrow}
             title={testimonialsSection.title}
             subtitle={testimonialsSection.subtitle}
           />
 
-          {/* SLIDER */}
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -60,14 +57,11 @@ export function Testimonials() {
               {testimonials.map((item, i) => (
                 <div key={i} className="w-full shrink-0 px-2">
                   <Card className="space-y-4 border-border/60 bg-card/80 card-padding rounded-2xl">
-
-                    {/* 🔥 READ MORE CONTROL */}
                     <ExpandableText
                       text={item.quote}
                       onToggle={(reading) => setIsReading(reading)}
                     />
 
-                    {/* PROFILE */}
                     <div className="flex items-center gap-4">
                       <div className="h-12 w-12 flex items-center justify-center rounded-full border border-border/60 bg-muted text-sm font-semibold text-foreground uppercase overflow-hidden">
                         {item.avatar ? (
@@ -90,14 +84,12 @@ export function Testimonials() {
                         </p>
                       </div>
                     </div>
-
                   </Card>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* CONTROLS */}
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={prev}
@@ -124,14 +116,12 @@ export function Testimonials() {
               <ChevronRight size={16} />
             </button>
           </div>
-
         </div>
       </Container>
     </section>
   );
 }
 
-/* 🔥 SMART READ MORE */
 function ExpandableText({
   text,
   onToggle,
@@ -149,7 +139,7 @@ function ExpandableText({
   const handleToggle = () => {
     const newState = !expanded;
     setExpanded(newState);
-    onToggle(newState); // 🔥 inform parent
+    onToggle(newState);
   };
 
   return (
