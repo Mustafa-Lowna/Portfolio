@@ -3,7 +3,6 @@ import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { siteConfig } from "@/content/site";
 import ChatBot from "@/components/common/chatbot";
-import Cursor from "@/components/common/cursor";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -29,7 +28,9 @@ export const metadata: Metadata = {
     },
   ],
   creator: siteConfig.seo.linkedinhandle ?? siteConfig.name,
-  metadataBase: new URL("http://localhost:3000"),
+
+  // 🔥 IMPORTANT (localhost hatao)
+  metadataBase: new URL("https://mustafa-portfolio-seven-lime.vercel.app"),
 
   icons: {
     icon: "/icon.png",
@@ -63,7 +64,12 @@ export const metadata: Metadata = {
   },
 };
 
+// 🔥🔥🔥 MOST IMPORTANT FIX (iPhone zoom issue)
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
   themeColor: "#f0eee9",
 };
 
@@ -83,7 +89,8 @@ export default function RootLayout({
           </a>
 
           {children}
-          <Cursor />
+
+          {/* 🔥 Chatbot */}
           <ChatBot />
         </ThemeProvider>
       </body>

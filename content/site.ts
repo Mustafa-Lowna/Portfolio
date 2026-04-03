@@ -159,7 +159,6 @@ export const siteConfig = {
       "From concept to final delivery, I focus on clarity, performance, and premium design to deliver solutions that not only look great but also perform effectively.",
     ],
     quickFacts: [
-      { label: "Location", value: "Bhatkal, Karnataka, India" },
       {
         label: "Specialization",
         value: "Branding & Full-Stack Web Development",

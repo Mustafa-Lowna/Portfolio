@@ -86,7 +86,7 @@ export const chatbotReplies = [
   {
     keywords: ["skills", "tools", "software"],
     reply:
-      "My core skills include Adobe Illustrator, Photoshop, CorelDRAW, Canva, HTML, CSS, Bootstrap, and responsive web design, along with experience in branding and digital marketing design.",
+      "I specialize in graphic design and frontend development, creating branding, websites, social media creatives, and print materials with a strong focus on quality and clean design.",
   },
 
   {
