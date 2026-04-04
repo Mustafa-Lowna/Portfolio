@@ -21,7 +21,7 @@ export function Contact() {
             subtitle={contact.subtitle}
           />
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             {contact.actions.map((action) => {
               const isExternal =
                 action.href.startsWith("http") ||
@@ -38,7 +38,7 @@ export function Contact() {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    className="inline-flex items-center"
+                    className="w-full sm:w-auto sm:min-w-40 justify-center"
                   >
                     {action.label}
                     <ArrowUp className="ml-2 h-4 w-4" />
@@ -53,12 +53,13 @@ export function Contact() {
                     asChild
                     variant={action.variant}
                     size="lg"
+                    className="w-full sm:w-auto sm:min-w-40 justify-center"
                   >
                     <a
                       href={action.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center"
+                      className="inline-flex items-center justify-center w-full"
                     >
                       {action.label}
                       {!action.href.startsWith("mailto:") && (
@@ -75,8 +76,12 @@ export function Contact() {
                   asChild
                   variant={action.variant}
                   size="lg"
+                  className="w-full sm:w-auto sm:min-w-40 justify-center"
                 >
-                  <Link href={action.href} className="inline-flex items-center">
+                  <Link
+                    href={action.href}
+                    className="inline-flex items-center justify-center w-full"
+                  >
                     {action.label}
                     <ArrowUpRight className="ml-2 h-4 w-4" />
                   </Link>

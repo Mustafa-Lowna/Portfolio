@@ -3,11 +3,11 @@
 
 :root {
   --mustafa-lowna-portfolio-hex: #f0eee9;
-  --background: 36 24% 95%;
+  --background: 0 0% 100%;
   --foreground: 222 28% 12%;
-  --card: 36 30% 97%;
+  --card: 0 0% 100%;
   --card-foreground: 222 26% 14%;
-  --muted: 34 18% 91%;
+  --muted: 0 0% 100%;
   --muted-foreground: 222 12% 31%;
   --border: 220 12% 80%;
   --ring: 220 12% 60%;
@@ -25,17 +25,17 @@
 
 .dark {
   --background: 222 26% 10%;
-  --foreground: 36 25% 95%;
+  --foreground: 0 0% 100%;
+  --card-foreground: 0 0% 100%;
+  --muted-foreground: 0 0% 100%;
   --card: 222 22% 14.5%;
-  --card-foreground: 36 24% 94%;
   --muted: 220 14% 19%;
-  --muted-foreground: 214 18% 76%;
   --border: 220 16% 24%;
   --ring: 210 20% 45%;
-  --primary: 36 25% 92%;
+  --primary: 0 0% 100%;
   --primary-foreground: 222 26% 12%;
   --accent: 205 30% 55%;
-  --accent-foreground: 222 26% 12%;
+  --accent-foreground: 0 0% 100%;
 }
 html {
   scroll-behavior: smooth;

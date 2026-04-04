@@ -77,7 +77,7 @@ export function Hero() {
               >
                 {siteConfig.ctas.secondary.label}
               </Button>
-              <button
+              {/* <button
                 onClick={() => {
                   const el = document.querySelector("#about");
                   if (el) {
@@ -87,7 +87,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition"
               >
                 Scroll <ArrowDownRight className="h-4 w-4" />
-              </button>
+              </button> */}
             </div>
 
             <SocialLinks className="pt-2" />

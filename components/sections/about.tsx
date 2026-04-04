@@ -99,6 +99,13 @@ export function About() {
                   >
                     GitHub
                   </Link>
+
+                  <Link
+                    href={siteConfig.links.x}
+                    className="transition hover:text-foreground hover:underline"
+                  >
+                    Twitter
+                  </Link>
                 </div>
 
                 <a

@@ -102,8 +102,10 @@ export function Testimonials() {
               {testimonials.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-2 w-2 rounded-full transition ${
-                    i === index ? "bg-foreground scale-110" : "bg-muted"
+                  className={`h-2.5 w-2.5 rounded-full border transition-all duration-300 ${
+                    i === index
+                      ? "bg-gray-900 border-gray-900 dark:bg-white dark:border-white"
+                      : "bg-transparent border-gray-300 dark:border-white/20"
                   }`}
                 />
               ))}
