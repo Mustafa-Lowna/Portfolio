@@ -13,9 +13,8 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur">
+    <header className="fixed top-0 left-0 w-full z-50 bg-background/70 backdrop-blur-lg border-b border-border">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-10">
-        
         <Link href="#hero" className="font-display text-lg font-semibold">
           {siteConfig.name}
         </Link>
@@ -52,7 +51,7 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setOpen(false)} 
+                    onClick={() => setOpen(false)}
                     className="text-muted-foreground hover:text-foreground transition"
                   >
                     {item.label}
@@ -61,7 +60,6 @@ export function SiteHeader() {
               </div>
             </SheetContent>
           </Sheet>
-
         </div>
       </div>
     </header>

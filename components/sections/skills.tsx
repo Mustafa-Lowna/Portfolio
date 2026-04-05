@@ -67,22 +67,14 @@ export function Skills() {
                   transition={{ duration: 0.4 }}
                 >
                   <Card
-                    className="
-                    group h-full flex flex-col justify-between
-                    relative overflow-hidden 
-                    border-border/60 bg-card/80 
-                    p-6 pb-4 
-                    transition-all duration-300 
-                    hover:-translate-y-1 
-                    hover:shadow-md
-                    "
+                    className="group h-full flex flex-col justify-between relative overflow-hidden border-border/60 bg-card/80 p-6 pb-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                   >
                     <div className="absolute -right-12 -top-12 h-24 w-24 rounded-full bg-accent/10 blur-xl opacity-60 group-hover:opacity-80 transition" />
 
                     <div className="relative space-y-4">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
-                          <Icon className="h-5 w-5 text-foreground transition group-hover:text-accent/80" />
+                        <div className="flex items-center justify-center w-10 h-10 min-w-10 min-h-10 aspect-square shrink-0 rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
+                          <Icon className="w-5 h-5 text-foreground transition" />
                         </div>
 
                         <div>
@@ -95,17 +87,38 @@ export function Skills() {
                         </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <motion.div
+                        className="flex flex-wrap gap-2"
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true }}
+                        variants={{
+                          hidden: {},
+                          show: {
+                            transition: {
+                              staggerChildren: 0.1,
+                            },
+                          },
+                        }}
+                      >
                         {group.items.map((item) => (
-                          <Badge
+                          <motion.div
                             key={item}
-                            variant="outline"
-                            className="transition hover:scale-105 hover:bg-muted"
+                            variants={{
+                              hidden: { opacity: 0, y: 20, scale: 0.95 },
+                              show: { opacity: 1, y: 0, scale: 1 },
+                            }}
+                            transition={{ duration: 0.3 }}
                           >
-                            {item}
-                          </Badge>
+                            <Badge
+                              variant="outline"
+                              className="transition hover:scale-105 hover:bg-muted"
+                            >
+                              {item}
+                            </Badge>
+                          </motion.div>
                         ))}
-                      </div>
+                      </motion.div>
                     </div>
                   </Card>
                 </motion.div>

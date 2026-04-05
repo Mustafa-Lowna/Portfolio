@@ -1,6 +1,5 @@
 import { ScrollToTop } from "@/components/common/scroll-to-top";
 import { SiteFooter } from "@/components/common/site-footer";
-import { SiteHeader } from "@/components/common/site-header";
 import { About } from "@/components/sections/about";
 import { Contact } from "@/components/sections/contact";
 import { Faq } from "@/components/sections/faq";
@@ -72,7 +71,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <SiteHeader />
       <main id="main-content">
         <JsonLd data={jsonLd} />
         <Hero />

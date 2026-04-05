@@ -3,6 +3,8 @@ import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { siteConfig } from "@/content/site";
 import ChatBot from "@/components/common/chatbot";
+import { SiteHeader } from "@/components/common/site-header";
+import { DisableProtection } from "@/components/common/disable-protection";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -22,19 +24,11 @@ export const metadata: Metadata = {
   description: siteConfig.seo.description,
   applicationName: siteConfig.name,
   keywords: siteConfig.seo.keywords,
-  authors: [
-    {
-      name: siteConfig.name,
-    },
-  ],
+  authors: [{ name: siteConfig.name }],
   creator: siteConfig.seo.linkedinhandle ?? siteConfig.name,
-  metadataBase: new URL("https://mustafa-portfolio-seven-lime.vercel.app"),
-  icons: {
-    icon: "/icon.png",
-  },
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL("https://mustafa-lowna.vercel.app"),
+  icons: { icon: "/icon.png" },
+  alternates: { canonical: "/" },
   openGraph: {
     title: siteConfig.seo.title,
     description: siteConfig.seo.description,
@@ -82,8 +76,11 @@ export default function RootLayout({
           <a href="#main-content" className="skip-link">
             Skip to content
           </a>
-
-          {children}
+          <DisableProtection />
+          <SiteHeader />
+          <main id="main-content" className="pt-24 md:pt-20 lg:pt-16">
+            {children}
+          </main>
 
           <ChatBot />
         </ThemeProvider>

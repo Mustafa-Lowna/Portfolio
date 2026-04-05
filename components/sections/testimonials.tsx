@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { Container } from "@/components/common/container";
 import { SectionHeading } from "@/components/common/section-heading";
@@ -15,6 +16,9 @@ export function Testimonials() {
   const [isReading, setIsReading] = useState(false);
   const [delay, setDelay] = useState(6000);
 
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const next = () => {
     setIndex((prev) => (prev + 1 >= total ? 0 : prev + 1));
     setDelay(9000);
@@ -23,6 +27,21 @@ export function Testimonials() {
   const prev = () => {
     setIndex((prev) => (prev - 1 < 0 ? total - 1 : prev - 1));
     setDelay(9000);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+
+    if (diff > 50) next();
+    if (diff < -50) prev();
   };
 
   useEffect(() => {
@@ -47,47 +66,57 @@ export function Testimonials() {
             subtitle={testimonialsSection.subtitle}
           />
 
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${index * 100}%)`,
-              }}
-            >
-              {testimonials.map((item, i) => (
-                <div key={i} className="w-full shrink-0 px-2">
-                  <Card className="space-y-4 border-border/60 bg-card/80 card-padding rounded-2xl">
-                    <ExpandableText
-                      text={item.quote}
-                      onToggle={(reading) => setIsReading(reading)}
-                    />
+          <div
+            className="overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ x: 60, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -60, opacity: 0 }}
+                transition={{
+                  duration: 0.45,
+                  ease: [0.4, 0, 0.2, 1],
+                }}
+                className="w-full px-2"
+              >
+                <Card className="space-y-4 border-border/60 bg-card/80 card-padding rounded-2xl transition hover:shadow-md">
 
-                    <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 flex items-center justify-center rounded-full border border-border/60 bg-muted text-sm font-semibold text-foreground uppercase overflow-hidden">
-                        {item.avatar ? (
-                          <img
-                            src={item.avatar}
-                            alt={item.name}
-                            className="h-full w-full object-cover"
-                          />
-                        ) : (
-                          item.name?.charAt(0)
-                        )}
-                      </div>
+                  <ExpandableText
+                    text={testimonials[index].quote}
+                    onToggle={(reading) => setIsReading(reading)}
+                  />
 
-                      <div>
-                        <p className="text-sm font-semibold text-foreground">
-                          {item.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {item.role}
-                        </p>
-                      </div>
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 flex items-center justify-center rounded-full border border-border/60 bg-muted text-sm font-semibold text-foreground uppercase overflow-hidden">
+                      {testimonials[index].avatar ? (
+                        <img
+                          src={testimonials[index].avatar}
+                          alt={testimonials[index].name}
+                          className="h-full w-full object-cover"
+                        />
+                      ) : (
+                        testimonials[index].name?.charAt(0)
+                      )}
                     </div>
-                  </Card>
-                </div>
-              ))}
-            </div>
+
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">
+                        {testimonials[index].name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {testimonials[index].role}
+                      </p>
+                    </div>
+                  </div>
+
+                </Card>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <div className="flex items-center justify-center gap-4">
@@ -102,7 +131,8 @@ export function Testimonials() {
               {testimonials.map((_, i) => (
                 <span
                   key={i}
-                  className={`h-2.5 w-2.5 rounded-full border transition-all duration-300 ${
+                  onClick={() => setIndex(i)}
+                  className={`h-2.5 w-2.5 rounded-full border cursor-pointer transition-all duration-300 ${
                     i === index
                       ? "bg-gray-900 border-gray-900 dark:bg-white dark:border-white"
                       : "bg-transparent border-gray-300 dark:border-white/20"

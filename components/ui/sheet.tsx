@@ -15,7 +15,10 @@ const SheetOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     ref={ref}
-    className={cn("fixed inset-0 z-50 bg-foreground/30 backdrop-blur-sm", className)}
+    className={cn(
+      "fixed inset-0 z-50 bg-foreground/30 backdrop-blur-sm",
+      className,
+    )}
     {...props}
   />
 ));
@@ -35,7 +38,10 @@ const SheetContent = React.forwardRef<
       )}
       {...props}
     >
+      <DialogPrimitive.Title className="sr-only">Menu</DialogPrimitive.Title>
+
       {children}
+
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full p-2 text-muted-foreground hover:text-foreground">
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
@@ -45,15 +51,26 @@ const SheetContent = React.forwardRef<
 ));
 SheetContent.displayName = DialogPrimitive.Content.displayName;
 
-const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const SheetHeader = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
   <div className={cn("mb-6 flex flex-col gap-2", className)} {...props} />
 );
 
-const SheetTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
-  ({ className, ...props }, ref) => (
-    <h2 ref={ref} className={cn("text-lg font-semibold", className)} {...props} />
-  ),
-);
+const SheetTitle = React.forwardRef<
+  HTMLHeadingElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h2 ref={ref} className={cn("text-lg font-semibold", className)} {...props} />
+));
 SheetTitle.displayName = "SheetTitle";
 
-export { Sheet, SheetTrigger, SheetClose, SheetContent, SheetHeader, SheetTitle };
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+};

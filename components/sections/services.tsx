@@ -20,7 +20,6 @@ export function Services() {
     <section id="services" className="section">
       <Container>
         <div className="space-y-12">
-
           <SectionHeading
             eyebrow={servicesSection.eyebrow}
             title={servicesSection.title}
@@ -67,9 +66,8 @@ export function Services() {
                     <div className="absolute -right-10 -top-10 h-20 w-20 rounded-full bg-accent/10 blur-xl opacity-60 group-hover:opacity-80 transition" />
 
                     <div className="relative space-y-4">
-
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
-                        <Icon className="h-5 w-5 text-foreground transition group-hover:text-accent/80" />
+                      <div className="flex items-center justify-center w-10 h-10 min-w-10 min-h-10 aspect-square shrink-0 rounded-full border border-border/60 bg-muted transition group-hover:scale-105">
+                        <Icon className="w-5 h-5 text-foreground transition" />
                       </div>
 
                       <div className="space-y-2">
@@ -80,14 +78,12 @@ export function Services() {
                           {item.description}
                         </p>
                       </div>
-
                     </div>
                   </Card>
                 </motion.div>
               );
             })}
           </motion.div>
-
         </div>
       </Container>
     </section>
